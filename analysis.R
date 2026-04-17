@@ -1,4 +1,4 @@
-# Hot Girl Analysis
+#==Hot Girl Analysis============================================================
 
 # setting working directory
 setwd("C:/Users/gabri/Documents/research_capstone")
@@ -54,14 +54,6 @@ model_2 = glm(passed ~ money1 + party1 + chamber1 + committee1,
 summary(model_2)
 
 
-# model_3 = glm(passed ~ econ + gov_ops + educ + cj_civ +
-#                 health + env_nr + log_money_real + party1 +
-#                 chamber1 + committee1 + unemp_rate + log(gfund_real),
-#               family = binomial(link = 'logit'),
-#               data = df_slim)
-# 
-# summary(model_3)
-
 
 #==stage models=================================================================
 
@@ -90,6 +82,17 @@ summary(model_5)
 
 
 
+#==economic model (if desired)==================================================
+
+model_6 = glm(passed ~ econ + gov_ops + educ + cj_civ +
+                health + env_nr + log_money_real + party1 +
+                chamber1 + committee1 + unemp_rate + log(gfund_real),
+              family = binomial(link = 'logit'),
+              data = df_slim)
+
+summary(model_6)
+
+
 #==checking assumptions=========================================================
 
 ## model_chars
@@ -110,3 +113,7 @@ vif(model_4)  # also no multicolin
 
 ## model_stage3
 vif(model_5)  # also no multicolin
+
+
+## model_econ
+vif(model_6) # also no multicolin, but gfund & committee are pretty large...
