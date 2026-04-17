@@ -84,7 +84,7 @@ print(x_subject_table, type='latex')
 
 
 #==table of other binary variables pass rates===================================
-binary_vars = c('money1', 'cospon1', 'party1', 'chamber1')
+binary_vars = c('money1', 'cospon1', 'committee1','party1', 'chamber1')
 
 summary_table <- bind_rows(
   lapply(binary_vars, function(var) {
